@@ -23,7 +23,7 @@ namespace shop
             DataTable table = new DataTable();
             MySqlCommand command;
 
-            sql = "SELECT * FROM `suppliers`";
+            sql = "SELECT* FROM `products` WHERE `ProductName` LIKE 'C%'";
             command = new MySqlCommand(sql, db.getConnection());
 
             try
