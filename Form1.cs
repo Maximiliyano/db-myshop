@@ -13,18 +13,13 @@ namespace shop
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void fillDataGrid(string sql)
         {
-            String sql;
-
             DB db = new DB();
             db.openConnection();
 
             DataTable table = new DataTable();
-            MySqlCommand command;
-
-            sql = "SELECT* FROM `products` WHERE `ProductName` LIKE 'C%'";
-            command = new MySqlCommand(sql, db.getConnection());
+            MySqlCommand command = new MySqlCommand(sql, db.getConnection());
 
             try
             {
@@ -34,7 +29,7 @@ namespace shop
                 dataGridView1.DataSource = table;
                 dataGridView1.Update();
             }
-            catch(Exception a)
+            catch (Exception a)
             {
                 MessageBox.Show(a.ToString());
             }
@@ -42,12 +37,19 @@ namespace shop
             db.closeConnection();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            String data = "SELECT `ProductName` FROM `products` WHERE `ProductName` LIKE 'C%'";
+            fillDataGrid(data);
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            String data = "SELECT `ProductName`, `Price` FROM `products` ORDER BY `Price`";
+            fillDataGrid(data);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
