@@ -145,13 +145,13 @@ namespace shop
             this.dataGridView1.Location = new System.Drawing.Point(300, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(140, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(166, 225);
             this.dataGridView1.TabIndex = 9;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(122, 280);
+            this.button5.Location = new System.Drawing.Point(137, 294);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(196, 23);
             this.button5.TabIndex = 10;
@@ -163,7 +163,7 @@ namespace shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 315);
+            this.ClientSize = new System.Drawing.Size(489, 329);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
