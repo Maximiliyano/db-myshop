@@ -1,7 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Build.Tasks;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace shop
@@ -15,27 +15,53 @@ namespace shop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String sql, Output = "";
+            String sql;
 
             DB db = new DB();
             db.openConnection();
 
+            DataTable table = new DataTable();
             MySqlCommand command;
-            MySqlDataReader dataReader;
 
-            sql = "SELECT * FROM `products`";
+            sql = "SELECT * FROM `suppliers`";
             command = new MySqlCommand(sql, db.getConnection());
-            dataReader = command.ExecuteReader();
 
-            while (dataReader.Read())
+            try
             {
-                Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + "\n";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, db.getConnection());
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+                dataGridView1.Update();
             }
-            MessageBox.Show(Output);
-
-            dataReader.Close();
+            catch(Exception a)
+            {
+                MessageBox.Show(a.ToString());
+            }
             command.Dispose();
             db.closeConnection();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.closeConnection();
+            Close();
         }
     }
 }
