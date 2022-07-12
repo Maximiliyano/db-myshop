@@ -57,7 +57,8 @@ namespace shop
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            String data = "SELECT `SupplierName` FROM `suppliers`, `products` WHERE suppliers.SupplierID = products.SupplierID AND `CategoryID` = '2'";
+            fillDataGrid(data);
         }
 
         private void button5_Click(object sender, EventArgs e)
