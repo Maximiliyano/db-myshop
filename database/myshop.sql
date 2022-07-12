@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Лип 12 2022 р., 13:17
+-- Час створення: Лип 12 2022 р., 16:51
 -- Версія сервера: 8.0.24
 -- Версія PHP: 7.1.33
 
@@ -51,10 +51,10 @@ INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
 --
 
 CREATE TABLE `products` (
-  `ProductId` int NOT NULL,
+  `ProductID` int NOT NULL,
   `ProductName` varchar(33) CHARACTER SET cp1251 COLLATE cp1251_bin NOT NULL,
   `SupplierId` int NOT NULL,
-  `CategoryId` int NOT NULL,
+  `CategoryID` int NOT NULL,
   `Price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -62,7 +62,7 @@ CREATE TABLE `products` (
 -- Дамп даних таблиці `products`
 --
 
-INSERT INTO `products` (`ProductId`, `ProductName`, `SupplierId`, `CategoryId`, `Price`) VALUES
+INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierId`, `CategoryID`, `Price`) VALUES
 (1, 'Chais', 1, 1, 18),
 (2, 'Chang', 1, 1, 19),
 (3, 'Aniseed Syrup', 1, 2, 10),
@@ -80,14 +80,14 @@ CREATE TABLE `suppliers` (
   `SupplierID` int NOT NULL,
   `SupplierName` varchar(64) CHARACTER SET cp1251 COLLATE cp1251_bin NOT NULL,
   `City` varchar(33) CHARACTER SET cp1251 COLLATE cp1251_bin NOT NULL,
-  `County` varchar(33) CHARACTER SET cp1251 COLLATE cp1251_bin NOT NULL
+  `Country` varchar(33) CHARACTER SET cp1251 COLLATE cp1251_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп даних таблиці `suppliers`
 --
 
-INSERT INTO `suppliers` (`SupplierID`, `SupplierName`, `City`, `County`) VALUES
+INSERT INTO `suppliers` (`SupplierID`, `SupplierName`, `City`, `Country`) VALUES
 (1, 'Exotic Liquid', 'London', 'UK'),
 (2, 'New Orleans Cajun Delights', 'New Orleans', 'USA'),
 (3, 'Grandma Kelly\'s Homestead', 'Ann Arbor', 'USA'),
@@ -109,7 +109,7 @@ ALTER TABLE `categories`
 -- Індекси таблиці `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`ProductId`);
+  ADD PRIMARY KEY (`ProductID`);
 
 --
 -- Індекси таблиці `suppliers`
@@ -131,7 +131,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ProductID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблиці `suppliers`
