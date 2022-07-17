@@ -13,7 +13,7 @@ namespace shop
             InitializeComponent();
         }
 
-        private void fillDataGrid(string sql)
+        private void FillDataGrid(string sql)
         {
             DB db = new DB();
             db.openConnection();
@@ -37,31 +37,51 @@ namespace shop
             db.closeConnection();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            String data = "SELECT `ProductName` FROM `products` WHERE `ProductName` LIKE 'C%'";
-            fillDataGrid(data);
+            String data = 
+                "SELECT `ProductName` " +
+                "FROM `products` " +
+                "WHERE `ProductName` " +
+                "LIKE 'C%'";
+
+            FillDataGrid(data);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            String data = "SELECT `ProductName`, `Price` FROM `products` ORDER BY `Price`";
-            fillDataGrid(data);
+            String data = 
+                "SELECT `ProductName`, `Price` " +
+                "FROM `products` " +
+                "ORDER BY `Price` ASC";
+
+            FillDataGrid(data);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
-            String data = "SELECT `ProductName`, `Price`, `Country` FROM `suppliers`, `products` WHERE suppliers.Country = 'USA' AND suppliers.SupplierID = products.SupplierID ORDER BY `Price`";
-            fillDataGrid(data);
+            String data = 
+                "SELECT `ProductName`, `Price`, `Country` " +
+                "FROM `suppliers`, `products` " +
+                "WHERE suppliers.Country = 'USA' AND suppliers.SupplierID = products.SupplierID " +
+                "ORDER BY `Price` ASC";
+
+            FillDataGrid(data);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
-            String data = "SELECT `SupplierName` FROM `suppliers`, `products` WHERE suppliers.SupplierID = products.SupplierID AND `CategoryID` = '2'";
-            fillDataGrid(data);
+            String data = 
+                "SELECT `SupplierName` " +
+                "FROM `suppliers`, `products` " +
+                "WHERE suppliers.SupplierID = products.SupplierID AND `CategoryID` = '2' " +
+                "GROUP BY `SupplierName` " +
+                "HAVING COUNT(*) > 0";
+
+            FillDataGrid(data);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             DB db = new DB();
             db.closeConnection();
