@@ -10,7 +10,16 @@ namespace shop
         public void openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
-                connection.Open();
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Connection is close!");
+                }
+            }
         }
 
         public void closeConnection()
